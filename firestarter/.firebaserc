@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chatbot-337b6": {
+      "hosting": {
+        "firestarter": [
+          "chatbot-337b6"
+        ]
+      }
+    }
+  }
+}
