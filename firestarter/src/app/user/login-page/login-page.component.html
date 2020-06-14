@@ -1,1 +1,15 @@
-<p>login-page works!</p>
+<main>
+<div *ngIf="!(auth.authState)">
+
+    <button mat-raised-button appGoogleSignin
+    >Login with Googl</button>
+</div>
+
+<h5>Or</h5>
+
+<app-email-login></app-email-login>
+
+<div *ngIf="auth.authState | async as user">
+    <button mat-stroked-button (click)='auth.auth.signOut()'>Logout</button>
+</div>
+</main>
