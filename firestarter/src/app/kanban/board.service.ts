@@ -6,7 +6,7 @@ import * as firebase from "firebase";
 import { switchMap } from "rxjs/operators";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class BoardService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
@@ -20,7 +20,7 @@ export class BoardService {
     return this.db.collection("boards").add({
       ...data,
       uid: user.uid,
-      tasks: [{ description: "Hello!", label: "yellow" }]
+      tasks: [{ description: "Hello!", label: "yellow" }],
     });
   }
 
@@ -29,10 +29,7 @@ export class BoardService {
   //
 
   deleteBoard(boardId: string) {
-    return this.db
-      .collection("brands")
-      .doc(boardId)
-      .delete();
+    return this.db.collection("brands").doc(boardId).delete();
   }
 
   //
@@ -40,10 +37,7 @@ export class BoardService {
   //
 
   updateTasks(boardId: string, tasks: Task[]) {
-    return this.db
-      .collection("boards")
-      .doc(boardId)
-      .update({ tasks });
+    return this.db.collection("boards").doc(boardId).update({ tasks });
   }
 
   //
@@ -55,7 +49,7 @@ export class BoardService {
       .collection("boards")
       .doc(boardId)
       .update({
-        tasks: firebase.firestore.FieldValue.arrayRemove(task)
+        tasks: firebase.firestore.FieldValue.arrayRemove(task),
       });
   }
 
@@ -65,10 +59,10 @@ export class BoardService {
 
   getUserBoards() {
     return this.afAuth.authState.pipe(
-      switchMap(user => {
+      switchMap((user) => {
         if (user) {
           return this.db
-            .collection<Board>("boards", ref =>
+            .collection<Board>("boards", (ref) =>
               ref.where("uid", "==", user.uid).orderBy("priority")
             )
             .valueChanges({ idField: "id" });
@@ -86,7 +80,7 @@ export class BoardService {
   sortBoards(boards: Board[]) {
     const db = firebase.firestore();
     const batch = db.batch();
-    const refs = boards.map(b => db.collection("boards").doc(b.id));
+    const refs = boards.map((b) => db.collection("boards").doc(b.id));
     refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
     batch.commit();
   }

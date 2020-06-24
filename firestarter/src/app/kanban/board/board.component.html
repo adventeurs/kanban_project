@@ -18,7 +18,7 @@
     <div
       class="inner-card"
       cdkDrag
-      *ngFor="let task of board.tasks: let i = index"
+      *ngFor="let task of board.tasks; let i = index"
     >
       <mat-card>{{ task.description }}</mat-card>
     </div>
