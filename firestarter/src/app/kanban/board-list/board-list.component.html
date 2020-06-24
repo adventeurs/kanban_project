@@ -7,7 +7,15 @@
   <app-board cdkDrag *ngFor="let board of boards" [board]="board">
     <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
   </app-board>
-  <button mat-raised-button cdkDragDisabled (click)="openBoardDialog()">
-    New Board
-  </button>
+
+  <div class="board-button">
+    <button
+      mat-raised-button
+      color="accent"
+      cdkDragDisabled
+      (click)="openBoardDialog()"
+    >
+      New Board
+    </button>
+  </div>
 </div>
