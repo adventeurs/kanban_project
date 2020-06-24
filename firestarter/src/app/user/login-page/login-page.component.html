@@ -1,15 +1,19 @@
 <main>
-<div *ngIf="!(auth.authState)">
+  <div *ngIf="!(auth.authState | async)">
+    <h1>Login</h1>
 
-    <button mat-raised-button appGoogleSignin
-    >Login with Googl</button>
-</div>
+    <button mat-raised-button appGoogleSignin><img /> Login with Google</button>
 
-<h5>Or</h5>
+    <h5>Or</h5>
 
-<app-email-login></app-email-login>
+    <app-email-login></app-email-login>
+  </div>
 
-<div *ngIf="auth.authState | async as user">
-    <button mat-stroked-button (click)='auth.auth.signOut()'>Logout</button>
-</div>
+  <div *ngIf="auth.authState | async as user">
+    <p>
+      Logged in as <strong>{{ user.email }}</strong>
+    </p>
+
+    <button mat-stroked-button (click)="auth.auth.signOut()">Logout</button>
+  </div>
 </main>
