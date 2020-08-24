@@ -29,7 +29,7 @@ export class BoardService {
   //
 
   deleteBoard(boardId: string) {
-    return this.db.collection("brands").doc(boardId).delete();
+    return this.db.collection("boards").doc(boardId).delete();
   }
 
   //
