@@ -15,6 +15,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ShellComponent } from "./shell/shell.component";
 import { DeleteButtonComponent } from "./delete-button/delete-button.component";
+import { AddToShelfComponent } from './add-to-shelf/add-to-shelf.component';
+import { DefinitionComponent } from './definition/definition.component';
 
 const components = [ShellComponent, DeleteButtonComponent];
 
@@ -36,7 +38,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components, DeleteButtonComponent],
+  declarations: [...components, DeleteButtonComponent, AddToShelfComponent, DefinitionComponent],
   imports: [...modules],
   exports: [...modules, ...components]
 })
