@@ -23,7 +23,15 @@ export class OxfordService {
 
   constructor(private http: HttpClient) {}
 
+  // Create parser and return type
   definition(word: string) {
-    this.http.get(this.api.url + "entries/en-us/" + word, this.api.headers());
+    const entry = "entries/en-us/";
+    return this.http.get(this.api.url + entry + word, this.api.headers());
+  }
+
+  // Create parser and return type
+  thesaurus(word: string) {
+    const thesaurus = "thesaurus/en/";
+    return this.http.get(this.api.url + thesaurus + word, this.api.headers());
   }
 }
