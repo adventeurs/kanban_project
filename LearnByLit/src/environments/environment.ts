@@ -12,8 +12,13 @@ export const environment = {
     storageBucket: "chatbot-337b6.appspot.com",
     messagingSenderId: "905260520450",
     appId: "1:905260520450:web:5f41c3e4630c8ea76a831b",
-    measurementId: "G-462JJL3W7X"
-  }
+    measurementId: "G-462JJL3W7X",
+  },
+  oxford: {
+    url: "https://od-api.oxforddictionaries.com/api/v2",
+    key: "32885597932dbe8b85ef41e453207798",
+    appId: "7acfeb32",
+  },
 };
 
 /*
