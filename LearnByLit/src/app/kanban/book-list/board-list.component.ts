@@ -9,7 +9,7 @@ import { BoardDialogComponent } from "../dialogs/board-dialog.component";
 @Component({
   selector: "app-board-list",
   templateUrl: "./board-list.component.html",
-  styleUrls: ["./board-list.component.scss"]
+  styleUrls: ["./board-list.component.scss"],
 })
 export class BoardListComponent implements OnInit, OnDestroy {
   boards: Board[];
@@ -20,7 +20,7 @@ export class BoardListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.boardService
       .getUserBoards()
-      .subscribe(boards => (this.boards = boards));
+      .subscribe((boards) => (this.boards = boards));
   }
 
   ngOnDestroy() {
@@ -32,19 +32,23 @@ export class BoardListComponent implements OnInit, OnDestroy {
     this.boardService.sortBoards(this.boards);
   }
 
+  // ***
+  // TASK: rewrite code to dsplay book view component
+  //
   openBoardDialog(): void {
     const dialogRef = this.dialog.open(BoardDialogComponent, {
       width: "400px",
-      data: {}
+      data: {},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.boardService.createBoard({
           title: result,
-          priority: this.boards.length
+          priority: this.boards.length,
         });
       }
     });
   }
+  // ****
 }

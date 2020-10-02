@@ -1,13 +1,13 @@
-interface OxText {
+export interface OxText {
   text: string;
 }
 
-interface Audio {
+export interface Audio {
   audioFile: string;
   playing: boolean;
 }
 
-interface Definition {
+export interface Definition {
   definitions: string[];
   examples: OxText;
   shortDefinitions?: string[];
@@ -15,13 +15,13 @@ interface Definition {
   antynyms?: OxText[];
 }
 
-interface Entry {
+export interface Entry {
   etymologies: string[];
   pronunctiations: Audio;
   senses: Definition[];
 }
 
-interface Entries {
+export interface Entries {
   entries: Entry[];
 }
 
