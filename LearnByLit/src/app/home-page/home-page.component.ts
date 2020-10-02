@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { OxfordDefinition } from "../models/definition";
 import { OxfordService } from "../services/oxford.service";
+import { GoodreadsService } from "../services/goodreads.service";
 
 @Component({
   selector: "app-home-page",
@@ -8,7 +9,12 @@ import { OxfordService } from "../services/oxford.service";
   styleUrls: ["./home-page.component.scss"],
 })
 export class HomePageComponent implements OnInit {
-  constructor() {}
+  constructor(private gr: GoodreadsService, private ox: OxfordService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.gr.getShelves(2431873).subscribe((json) => {
+      console.log(json);
+    });
+    this.ox.definition("ham").subscribe(console.log);
+  }
 }

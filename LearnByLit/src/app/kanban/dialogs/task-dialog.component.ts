@@ -1,6 +1,6 @@
 import { Component, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { BoardService } from "../board.service";
+import { BookService } from "../book.service";
 
 @Component({
   selector: "app-task-dialog",
@@ -36,14 +36,14 @@ import { BoardService } from "../board.service";
         *ngIf="!data.isNew"
       ></app-delete-button>
     </div>
-  `
+  `,
 })
 export class TaskDialogComponent {
   labelOptions = ["purple", "blue", "green", "yellow", "red", "gray"];
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
-    private boardService: BoardService,
+    private boardService: BookService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 

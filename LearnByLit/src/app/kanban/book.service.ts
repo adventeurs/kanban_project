@@ -8,7 +8,7 @@ import { switchMap } from "rxjs/operators";
 @Injectable({
   providedIn: "root",
 })
-export class BoardService {
+export class BookService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
 
   //

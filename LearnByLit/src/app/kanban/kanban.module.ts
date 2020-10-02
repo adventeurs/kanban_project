@@ -7,17 +7,17 @@ import { FormsModule } from "@angular/forms";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatDialogModule } from "@angular/material/dialog";
-import { BoardListComponent } from "./board-list/board-list.component";
-import { BoardComponent } from "./board/board.component";
-import { BoardDialogComponent } from "./dialogs/board-dialog.component";
+import { BookListComponent } from "./book-list/book-list.component";
+import { BookComponent } from "./book/book.component";
+import { BookDialogComponent } from "./dialogs/board-dialog.component";
 import { TaskDialogComponent } from "./dialogs/task-dialog.component";
 
 @NgModule({
   declarations: [
-    BoardListComponent,
-    BoardComponent,
-    BoardDialogComponent,
-    TaskDialogComponent
+    BookComponent,
+    BookDialogComponent,
+    TaskDialogComponent,
+    BookListComponent,
   ],
   imports: [
     CommonModule,
@@ -26,8 +26,8 @@ import { TaskDialogComponent } from "./dialogs/task-dialog.component";
     FormsModule,
     DragDropModule,
     MatDialogModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
   ],
-  entryComponents: [BoardDialogComponent, TaskDialogComponent]
+  entryComponents: [BookDialogComponent, TaskDialogComponent],
 })
 export class KanbanModule {}

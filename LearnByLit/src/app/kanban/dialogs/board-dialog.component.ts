@@ -18,11 +18,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
         Create
       </button>
     </div>
-  `
+  `,
 })
-export class BoardDialogComponent {
+export class BookDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<BoardDialogComponent>,
+    public dialogRef: MatDialogRef<BookDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 

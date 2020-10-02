@@ -14,6 +14,10 @@ export const environment = {
     appId: "1:905260520450:web:5f41c3e4630c8ea76a831b",
     measurementId: "G-462JJL3W7X",
   },
+  goodreads: {
+    key: "4sRwLTLZV63FiZ3VzUpg",
+    secret: "RSAfzR1T88w1K6B10Mz10xR1LpwEkFyDH6STsUaOOM8",
+  },
 };
 
 /*

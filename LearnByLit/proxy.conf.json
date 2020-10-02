@@ -10,5 +10,13 @@
       "app_key": "32885597932dbe8b85ef41e453207798"
     },
     "pathRewrite": { "^/oxfordapi": "" }
+  },
+  "/goodreads/": {
+    "target": "https://www.goodreads.com/",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "responseType": "xml",
+    "pathRewrite": { "^/goodreads": "" }
   }
 }
