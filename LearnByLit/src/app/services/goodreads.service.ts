@@ -22,7 +22,7 @@ export class GoodreadsService {
   constructor(private http: HttpClient) {}
 
   //
-  // // Get User Shelves
+  // Get User Shelves
   //
   getShelves(uid: string | number): Observable<Shelf[]> {
     const url = "/goodreads/shelf/list.xml";
@@ -34,7 +34,7 @@ export class GoodreadsService {
   }
 
   //
-  // // Parse XML For User Shelves
+  // Parse XML For User Shelves
   //
   private parse(res) {
     let shelf: Shelf[] = [];

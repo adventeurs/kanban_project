@@ -37,8 +37,10 @@ export class BookListComponent implements OnInit, OnDestroy {
   //
   openBoardDialog(): void {
     const dialogRef = this.dialog.open(BookDialogComponent, {
-      width: "400px",
-      data: {},
+      width: "600px",
+      data: {
+        // retrieve data from fb
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

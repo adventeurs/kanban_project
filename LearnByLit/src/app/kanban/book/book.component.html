@@ -3,10 +3,10 @@
     <!-- Slot for the handle -->
     <ng-content></ng-content>
     <mat-card-title>
-      {{ board.title }}
+      {{ book.title }}
     </mat-card-title>
     <mat-card-subtitle>
-      {{ board.id }}
+      {{ book.id }}
     </mat-card-subtitle>
   </mat-card-header>
 
@@ -19,7 +19,7 @@
     <div
       class="inner-card"
       cdkDrag
-      *ngFor="let task of board.tasks; let i = index"
+      *ngFor="let task of book.tasks; let i = index"
       (click)="openDialog(task, i)"
     >
       <mat-card [ngClass]="task.label"> {{ task.description }} </mat-card>

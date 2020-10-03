@@ -17,11 +17,16 @@ export class BookService {
 
   async createBoard(data: Board) {
     const user = await this.afAuth.auth.currentUser;
-    return this.db.collection("boards").add({
-      ...data,
-      uid: user.uid,
-      tasks: [{ description: "Hello!", label: "yellow" }],
-    });
+    console.log(user.uid);
+    return this.db
+      .collection("users")
+      .doc(user.uid)
+      .collection("books")
+      .add({
+        ...data,
+        uid: user.uid,
+        tasks: [{ description: "Hello!", label: "yellow" }],
+      });
   }
 
   //
