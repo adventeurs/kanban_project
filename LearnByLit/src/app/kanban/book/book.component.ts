@@ -16,11 +16,6 @@ export class BookComponent {
 
   constructor(private bookService: BookService, private dialog: MatDialog) {}
 
-  taskDrop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.book.tasks, event.previousIndex, event.currentIndex);
-    this.bookService.updateTasks(this.book.id, this.book.tasks);
-  }
-
   openDialog(task?: Task, idx?: number): void {
     const newTask = { label: "purple" };
     const dialogRef = this.dialog.open(TaskDialogComponent, {

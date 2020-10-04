@@ -11,6 +11,7 @@ import { BookListComponent } from "./book-list/book-list.component";
 import { BookComponent } from "./book/book.component";
 import { BookDialogComponent } from "./dialogs/board-dialog.component";
 import { TaskDialogComponent } from "./dialogs/task-dialog.component";
+import { VocabComponent } from './dialogs/vocab/vocab.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TaskDialogComponent } from "./dialogs/task-dialog.component";
     BookDialogComponent,
     TaskDialogComponent,
     BookListComponent,
+    VocabComponent,
   ],
   imports: [
     CommonModule,
