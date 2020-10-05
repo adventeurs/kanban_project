@@ -8,18 +8,22 @@ import { BookService } from "../../book.service";
   templateUrl: "./vocab.component.html",
   styleUrls: ["./vocab.component.scss"],
 })
-export class VocabComponent implements OnInit {
+export class VocabDialogComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<VocabComponent>,
+    public dialogRef: MatDialogRef<VocabDialogComponent>,
     public bookService: BookService,
     @Inject(MAT_DIALOG_DATA) public vocab: any
   ) {}
 
   ngOnInit() {}
 
-  taskDrop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.vocab.tasks, event.previousIndex, event.currentIndex);
-    this.bookService.updateTasks(this.vocab.id, this.vocab.tasks);
+  wordDrop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(
+      this.vocab.wordDrop,
+      event.previousIndex,
+      event.currentIndex
+    );
+    this.bookService.updateWords(this.vocab.id, this.vocab.tasks);
   }
 
   onNoClick(): void {

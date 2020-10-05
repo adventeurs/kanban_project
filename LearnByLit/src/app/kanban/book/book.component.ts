@@ -5,6 +5,7 @@ import { BookDialogComponent } from "../dialogs/board-dialog.component";
 import { TaskDialogComponent } from "../dialogs/task-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { Task } from "../board.model";
+import { VocabDialogComponent } from "../dialogs/vocab/vocab.component";
 
 @Component({
   selector: "app-board",
@@ -18,7 +19,7 @@ export class BookComponent {
 
   openDialog(task?: Task, idx?: number): void {
     const newTask = { label: "purple" };
-    const dialogRef = this.dialog.open(TaskDialogComponent, {
+    const dialogRef = this.dialog.open(VocabDialogComponent, {
       width: "500px",
       data: task
         ? { task: { ...task }, isNew: false, boardId: this.book.id, idx }
@@ -28,14 +29,14 @@ export class BookComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         if (result.isNew) {
-          this.bookService.updateTasks(this.book.id, [
+          this.bookService.updateWords(this.book.id, [
             ...this.book.tasks,
             result.task,
           ]);
         } else {
           const update = this.book.tasks;
           update.splice(result.idx, 1, result.task);
-          this.bookService.updateTasks(this.book.id, this.book.tasks);
+          this.bookService.updateWords(this.book.id, this.book.tasks);
         }
       }
     });

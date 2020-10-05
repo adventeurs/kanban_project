@@ -41,7 +41,7 @@ export class BookService {
   // Updates the tasks on board
   //
 
-  updateTasks(boardId: string, tasks: Task[]) {
+  updateWords(boardId: string, tasks: Task[]) {
     return this.db.collection("boards").doc(boardId).update({ tasks });
   }
 
@@ -67,7 +67,9 @@ export class BookService {
       switchMap((user) => {
         if (user) {
           return this.db
-            .collection<Board>("boards", (ref) =>
+            .collection("users")
+            .doc(user.uid)
+            .collection<Board>("books", (ref) =>
               ref.where("uid", "==", user.uid).orderBy("priority")
             )
             .valueChanges({ idField: "id" });

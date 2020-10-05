@@ -12,9 +12,10 @@ export class HomePageComponent implements OnInit {
   constructor(private gr: GoodreadsService, private ox: OxfordService) {}
 
   ngOnInit() {
-    this.gr.getShelves(2431873).subscribe((json) => {
+    this.gr.getShelves(2431873).subscribe((json: any) => {
       console.log(json);
     });
-    this.ox.definition("ham").subscribe(console.log);
+
+    this.ox.definition("ham").subscribe((json) => console.log(json));
   }
 }

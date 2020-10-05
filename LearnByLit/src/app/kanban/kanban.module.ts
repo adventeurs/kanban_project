@@ -11,7 +11,7 @@ import { BookListComponent } from "./book-list/book-list.component";
 import { BookComponent } from "./book/book.component";
 import { BookDialogComponent } from "./dialogs/board-dialog.component";
 import { TaskDialogComponent } from "./dialogs/task-dialog.component";
-import { VocabComponent } from './dialogs/vocab/vocab.component';
+import { VocabDialogComponent } from "./dialogs/vocab/vocab.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { VocabComponent } from './dialogs/vocab/vocab.component';
     BookDialogComponent,
     TaskDialogComponent,
     BookListComponent,
-    VocabComponent,
+    VocabDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +30,10 @@ import { VocabComponent } from './dialogs/vocab/vocab.component';
     MatDialogModule,
     MatButtonToggleModule,
   ],
-  entryComponents: [BookDialogComponent, TaskDialogComponent],
+  entryComponents: [
+    BookDialogComponent,
+    TaskDialogComponent,
+    VocabDialogComponent,
+  ],
 })
 export class KanbanModule {}
