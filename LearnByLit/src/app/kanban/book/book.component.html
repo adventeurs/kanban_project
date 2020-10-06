@@ -16,12 +16,7 @@
     cdkDropListOrientation="vertical"
     (cdkDropListDropped)="taskDrop($event)"
   >
-    <div
-      class="inner-card"
-      cdkDrag
-      *ngFor="let task of book.tasks; let i = index"
-      (click)="openDialog(task, i)"
-    >
+    <div class="inner-card" cdkDrag (click)="openDialog(book.words, book.id)">
       <mat-card [ngClass]="task.label"> {{ task.description }} </mat-card>
     </div>
 

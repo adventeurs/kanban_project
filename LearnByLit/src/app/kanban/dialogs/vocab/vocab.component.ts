@@ -12,18 +12,18 @@ export class VocabDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<VocabDialogComponent>,
     public bookService: BookService,
-    @Inject(MAT_DIALOG_DATA) public vocab: any
+    @Inject(MAT_DIALOG_DATA) public words: any
   ) {}
 
   ngOnInit() {}
 
   wordDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
-      this.vocab.wordDrop,
+      this.words.wordDrop,
       event.previousIndex,
       event.currentIndex
     );
-    this.bookService.updateWords(this.vocab.id, this.vocab.tasks);
+    this.bookService.updateWords(this.words.id, this.words.tasks);
   }
 
   onNoClick(): void {

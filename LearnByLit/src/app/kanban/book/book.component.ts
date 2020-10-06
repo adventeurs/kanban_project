@@ -17,14 +17,22 @@ export class BookComponent {
 
   constructor(private bookService: BookService, private dialog: MatDialog) {}
 
-  openDialog(task?: Task, idx?: number): void {
-    const newTask = { label: "purple" };
+  openDialog(words: Task, id?: number): void {
+    // const newTask = { label: "purple" };
     const dialogRef = this.dialog.open(VocabDialogComponent, {
       width: "500px",
-      data: task
-        ? { task: { ...task }, isNew: false, boardId: this.book.id, idx }
-        : { task: newTask, isNew: true },
+      data: { words, id },
+      //  task
+      //   ? { task: { ...task }, isNew: false, boardId: this.book.id, idx }
+      //   : { task: newTask, isNew: true },
     });
+
+    // getVocab(){
+    // retrieve vocab for book
+    // use book id for book to query book collection
+    // if collection exists pull word list
+    // if collection does not exist
+    // }
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

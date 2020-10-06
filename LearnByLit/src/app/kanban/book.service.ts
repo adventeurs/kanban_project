@@ -41,8 +41,19 @@ export class BookService {
   // Updates the tasks on board
   //
 
-  updateWords(boardId: string, tasks: Task[]) {
-    return this.db.collection("boards").doc(boardId).update({ tasks });
+  updateWords(bookId: string, tasks: Task[]) {
+    return this.afAuth.authState.pipe(
+      switchMap((user) => {
+        if (user) {
+          return this.db
+            .collection("users")
+            .doc(user.uid)
+            .collection("books")
+            .doc(bookId)
+            .update({ tasks });
+        }
+      })
+    );
   }
 
   //
